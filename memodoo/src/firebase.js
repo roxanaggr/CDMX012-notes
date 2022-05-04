@@ -17,8 +17,6 @@ const app = initializeApp(firebaseConfig);
 export default app
 //Authentication 
 export const auth = getAuth(app);
-//State of current user signed in
-export const authContext = createContext();
 
 // Initialize Cloud Firestore and get a reference to the service
 //const db = getFirestore(app);

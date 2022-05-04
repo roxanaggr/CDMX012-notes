@@ -1,8 +1,8 @@
 import React from 'react';
 import logo from '../img/logos/logo-white-h.svg';
 import GoogleSignIn from './Googleauth';
-//import { UserAuth } from '../context/AuthContext';
 import '../App.css';
+import { createUser } from '../auth/Auth';
 
 export function SignIn() {
 
@@ -16,7 +16,7 @@ export function SignIn() {
         <form className = "signinform">
             <input type="email" id="email" name="lname" placeholder="Email"></input>
             <input type="password" id="password" name="lname" placeholder="Password"></input>
-            <button>Continue with Email</button>
+            <button onClick={createUser}>Continue with Email</button>
         </form>
         <p>Or</p>
         <GoogleSignIn/>
