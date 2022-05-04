@@ -1,6 +1,11 @@
+body {
+  background-color: #ECECE0;
+}
+
 .Home,
 .Signup,
-.Authscreen {
+.Authscreen,
+.Notes {
   text-align: center;
   font-family: neue-haas-unica,sans-serif;
   font-weight: 400;
@@ -32,6 +37,69 @@ h2 {
 .Home-header h1{
   padding: 0%;
   margin: 0%;
+}
+
+.Notes-header {
+  background-color: #ECECE0;
+  min-height: 10vh;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0%;
+  padding: 0%;
+}
+
+.Notes-header aside {
+  padding: 0%;
+  margin: 15px;
+}
+
+.Notes-container {
+  background-color: #ECECE0;
+  min-height: 100vh;
+  margin-left: 80px;
+  margin-right: 80px;
+  padding: 0%;
+  text-align:left;
+}
+
+.allCards {
+  margin-top: 150px;
+  padding: 0%;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-gap: 40px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.card-header {
+  display:flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.card button{
+  height:20px;
+  margin: 20px;
+}
+
+.card h3 {
+  margin: 15px;
+}
+
+.card p {
+  margin: 15px;
+}
+
+.logo-notes {
+  height: 10vmin;
+  pointer-events: none;
+  padding: 0px;
 }
 
 .Home-header,

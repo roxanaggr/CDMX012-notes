@@ -2,6 +2,7 @@ import React from 'react';
 import logo from '../img/logos/logo-white-v.svg';
 import GoogleSignIn from './Googleauth';
 import '../App.css';
+import { Link } from 'react-router-dom';
 
 export function Home()
 {
@@ -17,6 +18,9 @@ export function Home()
                     Memodoo is a simple app to take notes for boosting your creative and productive self.
                     </p>
                     <GoogleSignIn/>
+                    <h2>
+                    <Link to='/Signup'>Or sign up with another email account</Link> 
+                    </h2>
                 </section>
             </section>
         </div>
