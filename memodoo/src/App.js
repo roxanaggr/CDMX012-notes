@@ -1,23 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import { Home } from './components/Home'
-import { GoogleSignIn } from './components/Googleauth';
-import { Notes } from './components/Notes';
-import { SignUp } from './components/Signup'
-import { SignIn } from './components/Signin'
-//import { useState } from 'react';
-//import { PrivateRoutes } from './PrivateRoutes';
-//import { PublicRoutes } from './PublicRoutes';
+import Allroutes from './components/Allroutes';
+import { auth } from './lib/firebase';
+import { onAuthStateChanged } from 'firebase/auth';
+
 export function App () 
 {
+
+  const [isAuth, setAuth] = useState (false);
+    onAuthStateChanged(auth, (user) => {   
+        if (user) {
+            setAuth(user)
+          // User is signed in, see docs for a list of available properties
+          // https://firebase.google.com/docs/reference/js/firebase.User
+          const uid = user.uid;
+          console.log (uid)
+        } else {
+          setAuth(false)
+        }
+      });
+
   return (
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Auth" element={<GoogleSignIn />} />
-        <Route path = "/Signup" element = {<SignUp />}/>
-        <Route path = "/Signin" element = {<SignIn />}/>
-        <Route path = "/Notes" element = {<Notes />}/>
+        <Route path='*' isAuth={isAuth} element={<Allroutes />} />
       </Routes> 
 )
   

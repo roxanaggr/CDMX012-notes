@@ -5,12 +5,15 @@ body {
 .Home,
 .Signup,
 .Authscreen,
-.Notes {
+.Notes,
+.Notesbuilder,
+.Newnote-header {
   text-align: center;
   font-family: neue-haas-unica,sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 20px;
+
 }
 
 h1 {
@@ -39,7 +42,8 @@ h2 {
   margin: 0%;
 }
 
-.Notes-header {
+.Notes-header,
+.Newnote-header {
   background-color: #ECECE0;
   min-height: 10vh;
   display:flex;
@@ -49,7 +53,12 @@ h2 {
   padding: 0%;
 }
 
-.Notes-header aside {
+.Newnote-header {
+  background-color: #10B76F;
+}
+
+.Notes-header aside,
+.Newnote-header aside {
   padding: 0%;
   margin: 15px;
 }
@@ -119,6 +128,7 @@ h2 {
   background-position: left bottom;
   background-repeat: no-repeat;
 }
+
 
 .authscreen-header {
   background-image: url("img/boy-logging-in.png");
@@ -245,5 +255,70 @@ a, a:hover, a:focus, a:active {
   color: #fff;
 }
 
+.fa-circle-plus {
+  color: #10B76F;
+  font-size: 40px;
+}
 
+.fa-circle-xmark {
+  color: #BDBDBD;
+  font-size: 40px;
+}
+
+.fa-circle-check {
+  color: #00B963;
+  font-size: 40px;
+}
+
+.float {
+  margin-top: 22px;
+}
+
+.Notes-builder {
+  background-color: #10B76F;
+  min-height: 100vh;
+}
+
+.Notes-builder h2 {
+  color: #000;
+  font-size: 25px;
+  font-weight: 400;
+  margin-left: 100px;
+  padding-left: 40px;
+}
+
+.new-note-container {
+  padding: 50px;
+  margin: auto;
+  margin-top: 60px;
+  width: 800px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: max-content;
+  border-radius: 10px;
+}
+
+.form-note {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 790px;
+}
+
+.form-note input {
+  height: 20px;
+  padding: 20px;
+}
+
+.form-note textarea {
+  height: 200px;
+  padding: 20px;
+}
+
+.actions-note{
+  padding-top: 20px;
+  margin-left: 85%;
+}
 
