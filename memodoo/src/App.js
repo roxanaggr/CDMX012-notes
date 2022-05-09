@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import Allroutes from './components/Allroutes';
+//import Allroutes from './components/Allroutes';
 import { auth } from './lib/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
+import Home from './components/public/Home';
+import SignIn from './components/public/Signin';
+import SignUp from './components/public/Signup';
+import Notes from './components/private/Notes'
+import Notescreate from './components/private/Notescreate';
+import { googleSignIn } from './lib/auth/Auth';
 
 export function App () 
 {
@@ -17,14 +23,23 @@ export function App ()
           const uid = user.uid;
           console.log (uid)
         } else {
-          setAuth(false)
+          //setAuth(false)
         }
       });
-
+console.log(isAuth);
   return (
-      <Routes>
-        <Route path='*' isAuth={isAuth} element={<Allroutes />} />
-      </Routes> 
+      <div>
+       {isAuth?
+            <Routes>
+                  <Route path='/Notes' element={<Notes />}/>
+                  <Route path='/Notescreate' element={<Notescreate />}/>
+            </Routes>:
+            <Routes>
+                  <Route path='/' element={<Home googleSignIn={googleSignIn} />}/>
+                  <Route path='/Signin' element={<SignIn />}/>
+                  <Route path='/Signup' element={<SignUp />}/>
+            </Routes>}
+      </div> 
 )
   
 } export default App;

@@ -9,28 +9,25 @@ import { googleSignIn } from '../lib/auth/Auth';
 function Allroutes({isAuth}) {
 
     return (
-            <Routes>
-                  <Route path='/Notes' element={<Notes />}>
-                  </Route><Route path='/Notescreate' element={<Notescreate />}>
-                  </Route>
-                  <Route path='/' element={<Home googleSignIn={googleSignIn} />}>
-                  </Route><Route path='/Signin' element={<SignIn />}>
-                  </Route><Route path='/Signup' element={<SignUp />}>
-                  </Route> 
-            </Routes>
-      /* <div>
+            /*<Routes>
+                  <Route path='/Notes' element={<Notes />}/>
+                  <Route path='/Notescreate' element={<Notescreate />}/>
+                  <Route path='/' element={<Home googleSignIn={googleSignIn} />}/>
+                  <Route path='/Signin' element={<SignIn />}/>
+                  <Route path='/Signup' element={<SignUp />}/>
+            </Routes>*/
+       <div>
       {isAuth?
             <Routes>
-                  <Route path='/Notes' element={<Notes />}></Route>
-                  <Route path='/Notescreate' element={<Notescreate />}></Route>
+                  <Route path='/Notes' element={<Notes />}/>
+                  <Route path='/Notescreate' element={<Notescreate />}/>
             </Routes>:
             <Routes>
-                  <Route path='/' element={<Home googleSignIn={googleSignIn} />}>
-                  </Route><Route path='/Signin' element={<SignIn />}>
-                  </Route><Route path='/Signup' element={<SignUp />}>
-                  </Route> 
+                  <Route path='/' element={<Home googleSignIn={googleSignIn} />}/>
+                  <Route path='/Signin' element={<SignIn />}/>
+                  <Route path='/Signup' element={<SignUp />}/>
             </Routes>}
-      </div>  */
+      </div>
     )
   }
   

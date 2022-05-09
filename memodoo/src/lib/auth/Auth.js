@@ -6,10 +6,14 @@ import {
     signOut,
      } from 'firebase/auth'
 
-export const googleSignIn = () => {
+
+
+export const googleSignIn = (navigate) => {
   const provider = new GoogleAuthProvider();
   signInWithPopup(auth, provider)
     .then((result) => {
+      //console.log (result)
+      navigate ('/Notes')
     //const credential = GoogleAuthProvider.credentialFromResult(result);
     //const token = credential.accessToken;
     //const user = result.user;
@@ -24,9 +28,10 @@ export const createUser = (email, password) => {
 }
 
     //Log Out Function for later
-export const logOut = () => {
+export const logOut = (navigate) => {
     signOut(auth).then(() => {
         // Sign-out successful.
+        navigate ('/')
       }).catch((error) => {
         // An error happened.
       }); 

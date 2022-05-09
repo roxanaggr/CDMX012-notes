@@ -1,13 +1,14 @@
-import { getFirestore, addDoc } from "firebase/firestore";
+import { getFirestore, addDoc, collection } from "firebase/firestore";
+import { auth } from "./firebase";
 
 // Initialize Cloud Firestore and get a reference to the service
-const db = getFirestore(app);
+export const db = getFirestore(app);
 
-const publishPost = async () => {
-    await addDoc(collection(db, ''), {
-      text: posting,
+export const newNote = async (title) => {
+    await addDoc(collection(db, 'notes'), {
+      text: title,
       datecreate: Timestamp.now(),
       email: auth.currentUser.email,
-      //notes: [],
+      notes: [],
     })
-  } 
+  }
