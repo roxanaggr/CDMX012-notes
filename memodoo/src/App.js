@@ -26,7 +26,6 @@ export function App ()
           //setAuth(false)
         }
       });
-console.log(isAuth);
   return (
       <div>
        {isAuth?

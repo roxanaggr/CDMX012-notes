@@ -1,6 +1,9 @@
+@media (min-width:641px) {
+
 body {
   background-color: #ECECE0;
 }
+
 
 .Home,
 .Signup,
@@ -280,9 +283,9 @@ a, a:hover, a:focus, a:active {
 }
 
 .Notes-builder h2 {
-  color: #000;
+  color: #fff;
   font-size: 25px;
-  font-weight: 400;
+  font-weight:400;
   margin-left: 100px;
   padding-left: 40px;
 }
@@ -305,16 +308,37 @@ a, a:hover, a:focus, a:active {
   flex-direction: column;
   padding: 10px;
   width: 790px;
+  
 }
 
 .form-note input {
   height: 20px;
   padding: 20px;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.form-note input::placeholder {
+  color: #000;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .form-note textarea {
   height: 200px;
   padding: 20px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  font-family:neue-haas-unica,sans-serif;;
+}
+
+.form-note textarea::placeholder {
+  color: #000;
+  font-size: 16px;
+  font-family:neue-haas-unica,sans-serif;;
 }
 
 .actions-note{
@@ -322,3 +346,10 @@ a, a:hover, a:focus, a:active {
   margin-left: 85%;
 }
 
+.actions-note button{
+  border: none;
+  outline: none;
+  background-color: #fff;
+}
+
+}
