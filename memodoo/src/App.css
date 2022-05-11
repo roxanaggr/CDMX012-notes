@@ -42,6 +42,10 @@ h2 {
   margin: 0%;
 }
 
+.Home-content h2 {
+  margin-top: 70px;
+}
+
 .Notes-header,
 .Newnote-header {
   background-color: #ECECE0;
@@ -208,9 +212,10 @@ a, a:hover, a:focus, a:active {
   font-size: 14px;
 }
 
-.signupform button 
+.signupform button,
+.signinform button 
 {
-  background: #10B76F;
+  background: #F8DB5D;
   width: 100%;
   border: none;
   border-radius: 10px;
@@ -219,20 +224,7 @@ a, a:hover, a:focus, a:active {
   box-sizing: border-box;
   font-size: 14px;
   font-weight: 700;
-  color: #fff;
-}
-
-.signinform button {
-  background: #000;
-  width: 100%;
-  border: none;
-  border-radius: 10px;
-  margin: 0 0 5px;
-  padding: 15px;
-  box-sizing: border-box;
-  font-size: 14px;
-  font-weight: 700;
-  color: #fff;
+  color: #000;
 }
 
 .Signup-header p,
@@ -240,6 +232,13 @@ a, a:hover, a:focus, a:active {
   margin: 0 0 15px;
   padding: 0;
   font-size: 14px;
+}
+
+.section-signin h2 {
+  margin-top: 70px;
+  font-size: 12px;
+  color: #000;
+  text-decoration: solid;
 }
 
 .buttonAuth {
@@ -271,7 +270,8 @@ a, a:hover, a:focus, a:active {
 }
 
 .float {
-  margin-top: 22px;
+  position:fixed;
+  margin-top:30vmin;
 }
 
 .Notes-builder {

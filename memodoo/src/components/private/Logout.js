@@ -9,7 +9,7 @@ export function SignOut ()
   const navigate = useNavigate();
   const handleLogOut = () =>  {
     logOut(navigate);
-    //navigate ('/')
+    //navigate ('/Notes')
   }
 
       return (

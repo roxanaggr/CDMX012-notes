@@ -37,8 +37,6 @@ export function SignUp() {
             <input onChange={(e) => setPassword(e.target.value)} type="password" id="password" name="lname" placeholder="Password"></input>
             <button onClick={handleSubmit}>Continue with Email</button>
         </form>
-        <p>Or</p>
-        <button className = "buttonAuth">Continue with Google</button>
       </section>
     </div>
   );

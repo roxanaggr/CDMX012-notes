@@ -21,7 +21,7 @@ export function App ()
           // User is signed in, see docs for a list of available properties
           // https://firebase.google.com/docs/reference/js/firebase.User
           const uid = user.uid;
-          console.log (uid)
+          //console.log (uid)
         } else {
           //setAuth(false)
         }
@@ -31,6 +31,7 @@ console.log(isAuth);
       <div>
        {isAuth?
             <Routes>
+                  <Route path='/' element={<Home googleSignIn={googleSignIn} />}/>
                   <Route path='/Notes' element={<Notes />}/>
                   <Route path='/Notescreate' element={<Notescreate />}/>
             </Routes>:

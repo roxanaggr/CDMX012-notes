@@ -29,7 +29,7 @@ export const createUser = (email, password) => {
 
     //Log Out Function for later
 export const logOut = (navigate) => {
-    signOut(auth).then(() => {
+    signOut(auth).then((result) => {
         // Sign-out successful.
         navigate ('/')
       }).catch((error) => {

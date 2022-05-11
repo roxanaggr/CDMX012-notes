@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../../img/logos/logo-white-v.svg';
 import '../../App.css';
-import GoogleSignIn from './Googleauth';
+import GoogleSignIn from './Googleauth'; 
 import { Link } from 'react-router-dom';
 
 export function Home()
@@ -21,6 +21,10 @@ export function Home()
                     <h2>
                     <Link to='/Signup'>Or sign up with another email account</Link> 
                     </h2>
+                    <section className='section-signin'>
+                    <h2><Link to='/Signin'>Already registered with another email?<br/>Click here to login</Link> </h2>
+                    </section>
+                    
                 </section>
             </section>
         </div>

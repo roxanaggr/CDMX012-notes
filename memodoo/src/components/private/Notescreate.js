@@ -1,44 +1,26 @@
-import React, { useState } from 'react';
-import { Navbargreen } from './Navbargreen';
-import { Cancelnote } from './Cancelnote';
-import '../../App.css';
+import React from 'react';
+import Navbargreen from './Navbargreen';
+import Notesform from './Notesform';
+import { db, collection, addDoc } from '../../lib/firestore';
 
 export function Notescreate() {
 
-  const [notes, setNotes] = useState({
-    notetitle: '',
-    note: ''
-  });
-
-  const handleNewNote = e => {
-    e.preventDefault();
-    console.log (notes)
-  } 
-
-  const inputValues = e => {
-    const {name, value} = e.target;
-    //copia los valores actuales y el input que estes actualizando colóca el valor que se esta escribiendo
-    setNotes({...notes, [name]:value});
+  const addNote = async (notesObject) => {
+    try {
+      const docRef = await addDoc(collection(db, 'notes'), {
+        notesObject
+      });
+      console.log('A note is saved', docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
   }
+
 
   return (
     <div className="Notes-builder">
       <section><Navbargreen /></section>
-      <h2>Create a new memo and save it for later</h2>
-      <section className='new-note-container'>
-      <section>
-        <form className='form-note'>
-          <input type="text" id="title" name="notetitle" placeholder="Your note's title" onChange={inputValues}></input>
-          <textarea id="note" name="note" placeholder="Type your note!" onChange={inputValues}></textarea>
-        </form>
-        <aside className='actions-note'>
-          <button onClick={handleNewNote}>
-            <i className="fa-solid fa-circle-check"></i>
-          </button>
-          <Cancelnote/>
-        </aside>
-      </section>
-    </section>
+      <section><Notesform addNote={addNote} /></section>
     </div>
   )
 }

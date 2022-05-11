@@ -1,14 +1,13 @@
 import React from 'react';
 import '../../App.css';
 import { Navbar } from './Navbar'
-import { Addnote } from './Addnote'
+import { Newnotebutton } from './Newnotebutton'
 
 export function Notes()
 {
     return (
         <div className="Notes">
             <section><Navbar /></section>
-            <section className='new-note-container'><Addnote /></section>
             <section className="Notes-container">
                 <section className="allCards">
                     <article className="card">
@@ -33,7 +32,7 @@ export function Notes()
                         <button>Delete</button>
                     </article>
                 </section>
-                
+                <section className='float'><Newnotebutton /></section>
             </section>
         </div>
     );

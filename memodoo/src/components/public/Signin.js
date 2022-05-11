@@ -1,8 +1,8 @@
 import React from 'react';
 import logo from '../../img/logos/logo-white-h.svg';
 import '../../App.css';
-import GoogleSignIn from './Googleauth';
 import { createUser } from '../../lib/auth/Auth';
+import { Link } from 'react-router-dom';
 
 export function SignIn() {
 
@@ -18,8 +18,6 @@ export function SignIn() {
             <input type="password" id="password" name="lname" placeholder="Password"></input>
             <button onClick={createUser}>Continue with Email</button>
         </form>
-        <p>Or</p>
-        <GoogleSignIn/>
       </section>
     </div>
   );
