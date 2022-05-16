@@ -8,6 +8,6 @@ export function Newnotebutton() {
         <i className='fa-solid fa-circle-plus'></i>
         </Link>
   )
-}
+};
 
 export default Newnotebutton

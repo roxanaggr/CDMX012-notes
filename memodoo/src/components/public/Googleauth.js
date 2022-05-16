@@ -2,7 +2,7 @@ import '../../App.css';
 import { googleSignIn } from '../../lib/auth/Auth';
 import { useNavigate } from "react-router-dom";
 
-export function GoogleSignIn() {
+function GoogleSignIn() {
 
   const navigate = useNavigate();
   const handleSignIn = () =>  {

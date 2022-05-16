@@ -2,9 +2,9 @@ import React from 'react';
 import logo from '../../img/logos/logo-white-h.svg';
 import '../../App.css';
 import { createUser } from '../../lib/auth/Auth';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
-export function SignIn() {
+function SignIn() {
 
   return (
     <div className="Signin">

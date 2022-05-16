@@ -1,38 +1,39 @@
-import React from 'react';
+import React, {useState,useEffect} from 'react';
 import '../../App.css';
-import { Navbar } from './Navbar'
+import { Navbar } from './Navbar';
 import { Newnotebutton } from './Newnotebutton'
+import { collectionRef, getDocs } from '../../lib/firestore';
 
-export function Notes()
+
+function Notes()
 {
+    const [notes, setNotes] = useState([]);
+
+    useEffect(() => {
+        async function fetchData() {
+        const getNotes = await getDocs(collectionRef);
+        //console.log(getNotes)
+        setNotes(getNotes.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+        }
+        fetchData();
+    }, []);
+
     return (
         <div className="Notes">
             <section><Navbar /></section>
+            <section className='float'><Newnotebutton /></section>
             <section className="Notes-container">
                 <section className="allCards">
-                    <article className="card">
-                        <section className="card-header"><h3>Title One</h3>
+                    {notes.map((notes)=>{
+                        return  <article className="card">
+                        <section className="card-header"><h3>{notes.title}</h3>
                         <button>Edit</button>
                         </section>
-                        <p>Content for first note</p>
+                        <p>{notes.content}</p>
                         <button>Delete</button>
-                    </article>
-                    <article className="card">
-                        <section className="card-header"><h3>Title Two</h3>
-                        <button>Edit</button>
-                        </section>
-                        <p>Second note all of the content</p>
-                        <button>Delete</button>
-                    </article>
-                    <article className="card">
-                        <section className="card-header"><h3>Title Three</h3>
-                        <button>Edit</button>
-                        </section>
-                        <p>Third one note, this is the content</p>
-                        <button>Delete</button>
-                    </article>
+                        </article>
+                    })}
                 </section>
-                <section className='float'><Newnotebutton /></section>
             </section>
         </div>
     );

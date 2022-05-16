@@ -5,7 +5,7 @@ import '../../App.css';
 import { createUser } from '../../lib/auth/Auth';
 
 
-export function SignUp() {
+function SignUp() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState ('');

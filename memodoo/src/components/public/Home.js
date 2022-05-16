@@ -4,7 +4,7 @@ import '../../App.css';
 import GoogleSignIn from './Googleauth'; 
 import { Link } from 'react-router-dom';
 
-export function Home()
+function Home()
 {
     return (
         <div className="Home">

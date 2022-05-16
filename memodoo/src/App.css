@@ -274,7 +274,7 @@ a, a:hover, a:focus, a:active {
 
 .float {
   position:fixed;
-  margin-top:30vmin;
+  margin-top:5vmin;
 }
 
 .Notes-builder {
