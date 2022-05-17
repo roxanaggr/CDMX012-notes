@@ -9,23 +9,27 @@ import { auth } from '../../lib/firebase'
 function Notes()
 {
 
-    const user = auth.currentUser;
-    const name = user?.displayName;
-    const userPhoto = user?.photoURL;
-    
+    const userID = auth.currentUser;
+    const name = userID.displayName;
+    const userPhoto = userID.photoURL;
+
     const [notes, setNotes] = useState([]);
     
     useEffect(() => {
+        const { uid } = userID;
         async function fetchData() {
-            const getNotes = await getDocs(query (collectionRef, orderBy('date', 'desc'))); 
+            const getNotes = await getDocs(query (collectionRef, orderBy('date', 'desc')));
             setNotes(getNotes.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+            /* if ( userID === doc.id ) { 
+            } */  
         }
         fetchData(); 
     }, []);
 
-    async function onDelete (id) {
+   const handleDeleteNote = async (id) => {
         const idRef = doc(db, 'notes', id);
         await deleteDoc(idRef);
+        console.log(idRef)
       }
 
 
@@ -42,7 +46,7 @@ function Notes()
                         </section>
                         <p>{notes.content}</p>
                         <p></p>
-                        <button type='submit' onClick={onDelete}>Delete</button>
+                        <button type='submit' onClick={()=>{handleDeleteNote(notes.id);}}>Delete</button>
                         </article>
                     })}
                 </section>

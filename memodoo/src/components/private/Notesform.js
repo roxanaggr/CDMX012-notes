@@ -26,7 +26,7 @@ function Notesform(props) {
 
     useEffect (() => {
       addNote();
-      }, []);
+    }, []);
 
 
     const inputValues = e => {
