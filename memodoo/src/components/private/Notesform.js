@@ -1,8 +1,9 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect, useId} from 'react';
 import { Cancelnote } from './Cancelnote';
 import { useNavigate } from 'react-router-dom';
 import '../../App.css';
 import { db, collection, addDoc } from '../../lib/firestore';
+import { serverTimestamp } from 'firebase/firestore';
 
 
 function Notesform(props) {
@@ -16,18 +17,18 @@ function Notesform(props) {
       console.error("Error adding document: ", e);
     }
   }
-
     const [notes, setNotes] = useState({
         title: '',
-        content: ''
+        content: '',
+        date: serverTimestamp(),
+        userID: useId,
       });
 
-    /*   useEffect (() => {
-        addNote();
+    useEffect (() => {
+      addNote();
       }, []);
-     */
 
-  
+
     const inputValues = e => {
         const {name, value} = e.target;
         //copia los valores actuales y el input que estes actualizando colóca el valor que se esta escribiendo
@@ -35,7 +36,6 @@ function Notesform(props) {
       }
 
       let navigate = useNavigate();
-
       const handleNewNote = e => {
         e.preventDefault();
         addNote(notes)
