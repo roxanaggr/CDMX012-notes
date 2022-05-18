@@ -4,7 +4,7 @@ import { Navbar } from './Navbar';
 import { Newnotebutton } from './Newnotebutton'
 import { db, collectionRef, getDocs} from '../../lib/firestore';
 import { getUserLogged } from '../../lib/firebase';
-import { query, orderBy, deleteDoc, doc} from 'firebase/firestore';
+import { query, orderBy, deleteDoc, doc, where} from 'firebase/firestore';
 
 function Notes()
 {
@@ -18,12 +18,12 @@ function Notes()
     const [notes, setNotes] = useState([]);
 
     const getNotes = async () => {
-        const querySnapshot = await getDocs(query (collectionRef, orderBy('date', 'desc')));
+        const querySnapshot = await getDocs(query (collectionRef, orderBy('date', 'desc'), where('email', "==", userEmail)));
         setNotes(querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id})));
-        /* if (userEmail) {
+        if (userEmail) {
             console.log(notes)
             console.log(notes.email)
-        } */
+        }
     }
 
     useEffect(() => {
