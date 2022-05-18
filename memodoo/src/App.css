@@ -72,7 +72,6 @@ h2 {
 
 .Notes-container {
   background-color: #ECECE0;
-  min-height: 100vh;
   margin-left: 80px;
   margin-right: 80px;
   padding: 0%;
@@ -80,7 +79,8 @@ h2 {
 }
 
 .allCards {
-  margin-top: 150px;
+  margin-top: 50px;
+  margin-bottom: 50px;
   padding: 0%;
   display: grid;
   grid-template-columns: repeat(3,1fr);
@@ -259,7 +259,7 @@ a, a:hover, a:focus, a:active {
 
 .fa-circle-plus {
   color: #10B76F;
-  font-size: 40px;
+  font-size: 70px;
 }
 
 .fa-circle-xmark {
@@ -273,8 +273,10 @@ a, a:hover, a:focus, a:active {
 }
 
 .float {
-  position:fixed;
-  margin-top:5vmin;
+  display: block;
+  top : 670px;
+  right : 55px;
+  position: fixed;
 }
 
 .Notes-builder {
@@ -288,6 +290,23 @@ a, a:hover, a:focus, a:active {
   font-weight:400;
   margin-left: 100px;
   padding-left: 40px;
+}
+
+.welcome-title h1 {
+  color: #000;
+  font-size: 25px;
+  font-weight:400;
+  margin-top: 30px;
+  margin-bottom: 0%;
+  padding: 0%;
+}
+
+.welcome-title h2 {
+  color: #00B963;
+  font-size: 23px;
+  font-weight:700;
+  margin-top: 0%;
+  padding: 0%;
 }
 
 .new-note-container {

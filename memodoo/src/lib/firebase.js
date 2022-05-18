@@ -15,3 +15,9 @@ export const app = initializeApp(firebaseConfig);
 export default app
 //Authentication 
 export const auth = getAuth(app);
+
+export const getUserLogged = () => {
+    const user = auth.currentUser;
+    // const userName = user.displayName;
+    return user;
+  }

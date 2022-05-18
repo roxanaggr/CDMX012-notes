@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import '../../App.css';
 import { db, collection, addDoc } from '../../lib/firestore';
 import { serverTimestamp } from 'firebase/firestore';
+import { auth } from '../../lib/firebase';
 
 
 function Notesform(props) {
@@ -21,7 +22,7 @@ function Notesform(props) {
         title: '',
         content: '',
         date: serverTimestamp(),
-        userID: useId,
+        email: auth.currentUser.email
       });
 
     useEffect (() => {

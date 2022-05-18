@@ -2,34 +2,49 @@ import React, {useState,useEffect} from 'react';
 import '../../App.css';
 import { Navbar } from './Navbar';
 import { Newnotebutton } from './Newnotebutton'
-import { db, collectionRef, getDocs } from '../../lib/firestore';
-import { query, orderBy, deleteDoc, doc } from 'firebase/firestore';
-import { auth } from '../../lib/firebase'
+import { db, collectionRef, getDocs} from '../../lib/firestore';
+import { getUserLogged } from '../../lib/firebase';
+import { query, orderBy, deleteDoc, doc} from 'firebase/firestore';
 
 function Notes()
 {
 
-    const userID = auth.currentUser;
-    const name = userID.displayName;
-    const userPhoto = userID.photoURL;
+    //console.log(getUserLogged)
+
+    const user = getUserLogged();
+    const userName = user.displayName;
+    const userEmail = user.email;
 
     const [notes, setNotes] = useState([]);
-    
+
+    const getNotes = async () => {
+        const querySnapshot = await getDocs(query (collectionRef, orderBy('date', 'desc')));
+        setNotes(querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id})));
+        /* if (userEmail) {
+            console.log(notes)
+            console.log(notes.email)
+        } */
+    }
+
     useEffect(() => {
-        const { uid } = userID;
+        getNotes();
+    }, []);
+    
+    /*useEffect(() => {
+        //const { uid } = userID;
         async function fetchData() {
             const getNotes = await getDocs(query (collectionRef, orderBy('date', 'desc')));
-            setNotes(getNotes.docs.map(doc => ({ ...doc.data(), id: doc.id })));
-            /* if ( userID === doc.id ) { 
-            } */  
+            setNotes(getNotes.docs.map(doc => ({ ...doc.data(), id: doc.id})));
+           /*  if ( userEmail ) {
+                console.log(notes)  
+            }
         }
         fetchData(); 
-    }, []);
+    }, []);*/
 
    const handleDeleteNote = async (id) => {
         const idRef = doc(db, 'notes', id);
         await deleteDoc(idRef);
-        console.log(idRef)
       }
 
 
@@ -38,6 +53,10 @@ function Notes()
             <section><Navbar /></section>
             <section className='float'><Newnotebutton /></section>
             <section className="Notes-container">
+                <section className='welcome-title'>
+                    <h1>Hello, {userName}!</h1>
+                    <h2>Welcome to your notes dashboard</h2>
+                </section>
                 <section className="allCards">
                     {notes.map((notes)=>{
                         return  <article className="card" key={notes.id}>
