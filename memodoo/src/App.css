@@ -272,6 +272,20 @@ a, a:hover, a:focus, a:active {
   font-size: 40px;
 }
 
+.fa-trash-can,
+.fa-pen-to-square {
+  color: #C5C5C5;
+  font-size: 28px;
+}
+
+.delete-button,
+.edit-button {
+  border: none;
+  outline: none;
+  background-color: #fff;
+  margin: 0%;
+}
+
 .float {
   display: block;
   top : 670px;
@@ -362,7 +376,9 @@ a, a:hover, a:focus, a:active {
 
 .actions-note{
   padding-top: 20px;
-  margin-left: 85%;
+  width: auto;
+  display: flex;
+  justify-content: space-between;
 }
 
 .actions-note button{

@@ -61,11 +61,15 @@ function Notes()
                     {notes.map((notes)=>{
                         return  <article className="card" key={notes.id}>
                         <section className="card-header"><h3>{notes.title}</h3>
-                        <button>Edit</button>
+                        <button className="edit-button">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                        </button>
                         </section>
                         <p>{notes.content}</p>
                         <p></p>
-                        <button type='submit' onClick={()=>{handleDeleteNote(notes.id);}}>Delete</button>
+                        <button className="delete-button" type='submit' onClick={()=>{handleDeleteNote(notes.id);}}>
+                            <i class="fa-regular fa-trash-can"></i>
+                        </button>
                         </article>
                     })}
                 </section>

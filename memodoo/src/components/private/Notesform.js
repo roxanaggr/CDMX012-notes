@@ -54,10 +54,10 @@ function Notesform(props) {
                     <textarea id="note" name="content" placeholder="Type your note!" value={notes.content} onChange={inputValues}></textarea>
                 </form>
                   <form className='actions-note'>
+                  <Cancelnote/>
                     <button type="submit" onClick={handleNewNote}>
                         <i className="fa-solid fa-circle-check"></i>
                     </button>
-                    <Cancelnote/>
                 </form>
             </section>
         </section>
