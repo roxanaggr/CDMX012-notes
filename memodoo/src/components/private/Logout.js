@@ -14,7 +14,9 @@ export function SignOut ()
 
       return (
         <div className="logout-button">
-           <button onClick={handleLogOut} className="btn-logout">Log Out</button>
+           <button onClick={handleLogOut} className="btn-logout">
+             <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </button>
         </div>
       );
     }

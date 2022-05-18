@@ -267,7 +267,8 @@ a, a:hover, a:focus, a:active {
   font-size: 40px;
 }
 
-.fa-circle-check {
+.fa-circle-check,
+.fa-arrow-right-from-bracket {
   color: #00B963;
   font-size: 40px;
 }
@@ -279,10 +280,17 @@ a, a:hover, a:focus, a:active {
 }
 
 .delete-button,
-.edit-button {
+.edit-button{
   border: none;
   outline: none;
   background-color: #fff;
+  margin: 0%;
+}
+
+.btn-logout {
+  background-color: none;
+  border: none;
+  outline: none;
   margin: 0%;
 }
 
