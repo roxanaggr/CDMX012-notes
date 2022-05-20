@@ -9,6 +9,7 @@ import SignIn from './components/public/Signin';
 import SignUp from './components/public/Signup';
 import Notes from './components/private/Notes'
 import Notescreate from './components/private/Notescreate';
+import Notesedit from './components/private/Notesedit'
 import { googleSignIn } from './lib/auth/Auth';
 
 export function App () 
@@ -33,6 +34,7 @@ export function App ()
                   <Route path='/' element={<Home googleSignIn={googleSignIn} />}/>
                   <Route path='/Notes' element={<Notes />}/>
                   <Route path='/Notescreate' element={<Notescreate />}/>
+                  <Route path='/Notesedit' element={<Notesedit />}/>
             </Routes>:
             <Routes>
                   <Route path='/' element={<Home googleSignIn={googleSignIn} />}/>
