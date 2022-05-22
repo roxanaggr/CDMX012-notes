@@ -1,11 +1,11 @@
 import React, {useState,useEffect} from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import '../../App.css';
 import { Navbar } from './Navbar';
 import { Newnotebutton } from './Newnotebutton'
-import { db, collectionRef, getDocs} from '../../lib/firestore';
+import { db, collectionRef } from '../../lib/firestore';
 import { getUserLogged } from '../../lib/firebase';
-import { query, orderBy, deleteDoc, doc, where, updateDoc} from 'firebase/firestore';
+import { query, orderBy, deleteDoc, doc, where, onSnapshot} from 'firebase/firestore';
 
 function Notes()
 {
@@ -17,13 +17,16 @@ function Notes()
 
     const [notes, setNotes] = useState([]);
 
-    const getNotes = async () => {
+   /*  const getNotes = async (props) => {
         const querySnapshot = await getDocs(query (collectionRef, orderBy('date', 'desc'), where('email', "==", userEmail)));
         setNotes(querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id})));
-        if (userEmail) {
-            console.log(notes)
-            console.log(notes.email)
-        }
+    } */
+    
+    const getNotes = () => {
+        const q = query(collectionRef, orderBy('date', 'desc'), where('email', "==", userEmail));
+        const unsubscribe = onSnapshot(q, (querySnapshot) => {
+            setNotes(querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id})));
+    });
     }
 
     useEffect(() => {
@@ -48,16 +51,15 @@ function Notes()
                     {notes.map((notes)=>{
                         return  <article className="card" key={notes.id}>
                         <section className="card-header"><h3>{notes.title}</h3>
-                        <Link to='/Notesedit'>
-                            <button className="edit-button">
-                                <i class="fa-regular fa-pen-to-square"></i>
-                            </button>
-                        </Link>
+                        <button className="edit-button" onClick={() => navigate(`/Notesedit/`)}>{notes.notes}
+                            {/* <button className="edit-button" onClick={() => navigate(`/Notesedit/${notes.id}`)}>{notes.notes} */}
+                                <i className="fa-regular fa-pen-to-square"></i>
+                            </button>   
                         </section>
                         <p>{notes.content}</p>
                         <p></p>
                         <button className="delete-button" type='submit' onClick={()=>{handleDeleteNote(notes.id);}}>
-                            <i class="fa-regular fa-trash-can"></i>
+                            <i className="fa-regular fa-trash-can"></i>
                         </button>
                         </article>
                     })}

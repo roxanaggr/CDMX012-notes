@@ -1,58 +1,36 @@
-import React, { useState, useEffect, useId} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Cancelnote } from './Cancelnote';
-//import { useNavigate } from 'react-router-dom';
 import '../../App.css';
-//import { db, collection, addDoc } from '../../lib/firestore';
-//import { serverTimestamp } from 'firebase/firestore';
-//import { auth } from '../../lib/firebase';
+import { db, updateDoc, doc, getDoc } from '../../lib/firestore';
+import { useNavigate, useParams } from 'react-router-dom';
 
+function Editform() {
 
-function Editform(props) {
-
-  //const [updateNote, setupdateNote] = useState('');
-
-  /* const addNote = async (notes) => {
-    const collectionRef = collection(db, 'notes');
-    try {
-      await addDoc(collectionRef, notes);
-      console.log('A note is saved');
-    } catch (e) {
-      console.error("Error adding document: ", e);
-    }
+  const thisNote = {
+    title: '',
+    content: ''
   }
-    const [notes, setNotes] = useState({
-        title: '',
-        content: '',
-        date: serverTimestamp(),
-        email: auth.currentUser.email
-      }); */
 
-    /* useEffect (() => {
-    }, []); */
+  const [updateNote, setupdateNote] = useState(thisNote);
+  let navigate = useNavigate();
+  const {id} = useParams();
 
+  const getNotesId = async (id) => {
+    const docRef = doc(db, 'notes', id);
+    const docSnap = await getDoc(docRef);
+    setupdateNote(docSnap.data());
+  };
 
-    /* const inputValues = e => {
-        const {name, value} = e.target;
-        //copia los valores actuales y el input que estes actualizando colóca el valor que se esta escribiendo
-        setNotes({...notes, [name]:value});
-      } */
+     useEffect (() => {
+      getNotesId(id);
+    }, [id]);
 
-      /* let navigate = useNavigate();
-      const handleNewNote = e => {
-        e.preventDefault();
-        //addNote(notes)
-        navigate ('/Notes');
+   const editNote = async (id) => {
+    const docRef = doc(db, 'notes', id);
+      await updateDoc(docRef, updateNote)
+      navigate('/Notes')
+    }
 
-      } */
-
-/*   const handleEditNote = async (id, title, content) => {
-        const idRef = doc(db, 'notes', id);
-        const newFields = {title:[], content:[]}
-        await updateDoc(idRef, newFields)
-        /* const idRef = doc(db, 'notes', id);
-        await updateDoc(idRef).set({name:updateNote})  
-    } */
- 
 
   return (
     <div>
@@ -60,12 +38,22 @@ function Editform(props) {
         <section className='new-note-container'>
             <section>
                 <form className='form-note'>
-                    <input type="text" id="title" name="title" placeholder="Your note's title" ></input>
-                    <textarea id="note" name="content" placeholder="Type your note!" ></textarea>
+                    <input type="text" id="title"
+                    name="title"
+                    placeholder="Your note's title"
+                    value={updateNote.title}
+                    onChange ={(e) => {setupdateNote({...updateNote, title: e.target.value })}}>
+                    </input>
+                    <textarea id="note"
+                    name="content"
+                    placeholder="Type your note!"
+                    value={updateNote.content}
+                    onChange ={(e) => {setupdateNote({...updateNote, content: e.target.value })}}>
+                    </textarea>
                 </form>
                   <form className='actions-note'>
                   <Cancelnote/>
-                    <button type="submit">
+                    <button type="submit" onClick={()=>{editNote(id)}}>
                         <i className="fa-solid fa-circle-check"></i>
                     </button>
                 </form>

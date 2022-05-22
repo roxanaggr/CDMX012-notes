@@ -1,4 +1,4 @@
-import { getFirestore, collection, addDoc, getDocs, doc, onSnapshot, orderBy, query} from "firebase/firestore";
+import { getFirestore, collection, addDoc, getDocs, doc, onSnapshot, updateDoc, getDoc} from "firebase/firestore";
 import { app } from "./firebase";
 
 // Initialize Cloud Firestore and get a reference to the service
@@ -12,7 +12,9 @@ export {
   getDocs,
   doc,
   onSnapshot,
-  collection
+  collection,
+  updateDoc,
+  getDoc
 }
 
 /*export const newNote = async (title) => {

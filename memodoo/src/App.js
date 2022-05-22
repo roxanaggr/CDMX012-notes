@@ -32,7 +32,7 @@ export function App ()
        {isAuth?
             <Routes>
                   <Route path='/' element={<Home googleSignIn={googleSignIn} />}/>
-                  <Route path='/Notes' element={<Notes />}/>
+                  <Route path='/Notes' element={<Notes Notesedit={Notesedit}/>}/>
                   <Route path='/Notescreate' element={<Notescreate />}/>
                   <Route path='/Notesedit' element={<Notesedit />}/>
             </Routes>:
