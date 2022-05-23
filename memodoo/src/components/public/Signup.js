@@ -20,8 +20,8 @@ function SignUp() {
       await createUser (email, password);
       navigate ('/Notes')
     }catch (e) {
-      setError(e.message);
-      console.log(e.message);
+      setError(error.message);
+      console.log(error.message);
     }
   }
 

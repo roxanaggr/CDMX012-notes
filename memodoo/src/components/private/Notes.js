@@ -38,6 +38,7 @@ function Notes()
    const handleDeleteNote = async (id) => {
     const idRef = doc(db, 'notes', id);
     await deleteDoc(idRef);
+    
     /* swal({
         text: 'Are you sure you want to delete?',
         value: true,

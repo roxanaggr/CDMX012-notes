@@ -13,7 +13,7 @@ import Notesedit from './components/private/Notesedit'
 import { googleSignIn } from './lib/auth/Auth';
 
 
-export function App () 
+function App () 
 {
 
   const [isAuth, setAuth] = useState (false);
@@ -22,7 +22,7 @@ export function App ()
             setAuth(user)
           // User is signed in, see docs for a list of available properties
           // https://firebase.google.com/docs/reference/js/firebase.User
-          const uid = user.uid;
+          //const uid = user.uid;
           //console.log (uid)
         } else {
           //setAuth(false)
