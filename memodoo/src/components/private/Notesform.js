@@ -41,7 +41,6 @@ function Notesform(props) {
         e.preventDefault();
         addNote(notes)
         navigate ('/Notes');
-
       }
 
   return (

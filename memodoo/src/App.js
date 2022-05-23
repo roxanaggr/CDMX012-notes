@@ -12,6 +12,7 @@ import Notescreate from './components/private/Notescreate';
 import Notesedit from './components/private/Notesedit'
 import { googleSignIn } from './lib/auth/Auth';
 
+
 export function App () 
 {
 
@@ -34,7 +35,7 @@ export function App ()
                   <Route path='/' element={<Home googleSignIn={googleSignIn} />}/>
                   <Route path='/Notes' element={<Notes Notesedit={Notesedit}/>}/>
                   <Route path='/Notescreate' element={<Notescreate />}/>
-                  <Route path='/Notesedit' element={<Notesedit />}/>
+                  <Route path="/Notesedit/:id" element={<Notesedit/>} />
             </Routes>:
             <Routes>
                   <Route path='/' element={<Home googleSignIn={googleSignIn} />}/>

@@ -6,6 +6,7 @@ import { Newnotebutton } from './Newnotebutton'
 import { db, collectionRef } from '../../lib/firestore';
 import { getUserLogged } from '../../lib/firebase';
 import { query, orderBy, deleteDoc, doc, where, onSnapshot} from 'firebase/firestore';
+import swal from 'sweetalert';
 
 function Notes()
 {
@@ -14,6 +15,7 @@ function Notes()
     const user = getUserLogged();
     const userName = user.displayName;
     const userEmail = user.email;
+
 
     const [notes, setNotes] = useState([]);
 
@@ -34,9 +36,24 @@ function Notes()
     }, []);
 
    const handleDeleteNote = async (id) => {
-        const idRef = doc(db, 'notes', id);
-        await deleteDoc(idRef);
+    const idRef = doc(db, 'notes', id);
+    await deleteDoc(idRef);
+    /* swal({
+        text: 'Are you sure you want to delete?',
+        value: true,
+        reverseButtons: true,
+        buttons: ['Yes', 'No'],
+        backdrop: ` rgba(0, 0, 0, 0.70)`,
+    
+    }).then(async result => {
+        if (result === 'Yes') {
+            console.log('Deleted')
+            await deleteDoc(idRef);
+        }
+    }) */
     }
+
+    
     
     return (
         <div className="Notes">
@@ -51,8 +68,8 @@ function Notes()
                     {notes.map((notes)=>{
                         return  <article className="card" key={notes.id}>
                         <section className="card-header"><h3>{notes.title}</h3>
-                        <button className="edit-button" onClick={() => navigate(`/Notesedit/`)}>{notes.notes}
-                            {/* <button className="edit-button" onClick={() => navigate(`/Notesedit/${notes.id}`)}>{notes.notes} */}
+                            {/* <button className="edit-button" onClick={() => navigate(`/Notesedit`)}> */}
+                             <button className="edit-button" onClick={() => navigate(`/Notesedit/${notes.id}`)}>
                                 <i className="fa-regular fa-pen-to-square"></i>
                             </button>   
                         </section>
