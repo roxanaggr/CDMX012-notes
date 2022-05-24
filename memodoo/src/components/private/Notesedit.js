@@ -3,7 +3,7 @@ import Navbargreen from './Navbargreen';
 import { Cancelnote } from './Cancelnote';
 import { useNavigate, useParams } from 'react-router-dom';
 import '../../App.css';
-import { db, doc, getDoc, collection, setDoc } from '../../lib/firestore';
+import { db, doc, getDoc, collection, setDoc, updateDoc } from '../../lib/firestore';
 import { serverTimestamp } from 'firebase/firestore';
 import { auth } from '../../lib/firebase';
 
@@ -15,6 +15,7 @@ function Notesedit() {
     email: auth.currentUser.email,
     date: serverTimestamp(),
   }
+  
 
   const [updateNote, setupdateNote] = useState(thisNote);
   let navigate = useNavigate();
@@ -54,17 +55,17 @@ function Notesedit() {
             <section className='new-note-container'>
               <section>
                 
-                <form className='form-note' onSubmit={(e)=>{handleEditNote(e)}}>
+                <form className='form-note' onSubmit={(e)=>{handleEditNote(e)}} >
                     <input type="text" id="title"
                     name="title"
                     placeholder="Your note's title"
-                    value={updateNote.title}
+                    value={updateNote}
                     onChange ={(e) => {setupdateNote({...updateNote, title: e.target.value })}}>
                     </input>
                     <textarea id="note"
                     name="content"
                     placeholder="Type your note!"
-                    defaultvalue={updateNote.content}
+                    value={updateNote}
                     onChange ={(e) => {setupdateNote({...updateNote, content: e.target.value })}}>
                     </textarea>
                     <section className='actions-note'>

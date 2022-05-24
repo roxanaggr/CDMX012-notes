@@ -6,7 +6,7 @@ import { Newnotebutton } from './Newnotebutton'
 import { db, collectionRef } from '../../lib/firestore';
 import { getUserLogged } from '../../lib/firebase';
 import { query, orderBy, deleteDoc, doc, where, onSnapshot} from 'firebase/firestore';
-import swal from 'sweetalert';
+import Swal from "sweetalert2";
 
 function Notes()
 {
@@ -35,26 +35,27 @@ function Notes()
         getNotes();
     }, []);
 
-   const handleDeleteNote = async (id) => {
-    const idRef = doc(db, 'notes', id);
-    await deleteDoc(idRef);
-    
-    /* swal({
-        text: 'Are you sure you want to delete?',
-        value: true,
-        reverseButtons: true,
-        buttons: ['Yes', 'No'],
-        backdrop: ` rgba(0, 0, 0, 0.70)`,
-    
-    }).then(async result => {
-        if (result === 'Yes') {
-            console.log('Deleted')
-            await deleteDoc(idRef);
-        }
-    }) */
+    const handleDeleteNote = async (id) => {
+        const idRef = doc(db, 'notes', id);
+        await deleteDoc(idRef);
     }
 
-    
+        const confirmDeleteNote = (id) => {
+            Swal.fire({
+                title: "Are you sure?",
+                text: "Your note will be deleted forever!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#10B76F",
+                cancelButtonColor: "#BDBDBD",
+                confirmButtonText: "Yes, i want to delete it.",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    handleDeleteNote(id);
+                    Swal.fire("Done!", "Your note has been deleted.");
+            }
+          });
+    } 
     
     return (
         <div className="Notes">
@@ -76,7 +77,7 @@ function Notes()
                         </section>
                         <p>{notes.content}</p>
                         <p></p>
-                        <button className="delete-button" type='submit' onClick={()=>{handleDeleteNote(notes.id);}}>
+                        <button className="delete-button" type='submit' onClick={()=>{confirmDeleteNote(notes.id);}}>
                             <i className="fa-regular fa-trash-can"></i>
                         </button>
                         </article>
