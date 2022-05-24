@@ -1,0 +1,798 @@
+ 
+
+@media (min-width:320px) {
+
+  body {
+    background-color: #ECECE0;
+  }
+  
+  
+  .Home,
+  .Signup,
+  .Authscreen,
+  .Notes,
+  .Notesbuilder,
+  .Newnote-header {
+    text-align: center;
+    font-family: neue-haas-unica,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+  
+  }
+  
+  h1 {
+    font-family: neue-haas-unica,sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 40px;
+  }
+  
+  h2 {
+    font-family: neue-haas-unica,sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #fff;
+  }
+  
+  .App-logo,
+  .logo-vertical {
+    height: 30vmin;
+    pointer-events: none;
+    padding: 0px;
+  }
+  
+  .Home-header h1{
+    padding: 0%;
+    margin: 0%;
+  }
+  
+  .Home-content h2 {
+    margin-top: 70px;
+  }
+  
+  .Notes-header,
+  .Newnote-header {
+    background-color: #ECECE0;
+    min-height: 10vh;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0%;
+    padding: 0%;
+  }
+  
+  .Newnote-header {
+    background-color: #10B76F;
+  }
+  
+  .Notes-header aside,
+  .Newnote-header aside {
+    padding: 0%;
+    margin: 15px;
+  }
+  
+  .Notes-container {
+    background-color: #ECECE0;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 0%;
+    text-align:left;
+  }
+  
+  .allCards {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 0%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card {
+    background-color: #fff;
+    border-radius: 10px;
+  }
+  
+  .card-header {
+    display:flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  
+  .card button{
+    height:20px;
+    margin: 20px;
+  }
+  
+  .card h3 {
+    margin: 15px;
+  }
+  
+  .card p {
+    margin: 15px;
+  }
+  
+  .logo-notes {
+    height: 20vmin;
+    pointer-events: none;
+    padding: 0px;
+  }
+  
+  .Home-header,
+  .Signup-header,
+  .Signin-header,
+  .authscreen-header {
+    background-color: #10B76F;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: black;
+    background-image: url("img/girl-taking-notes.png");
+    background-size: 80vh;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+  }
+  
+  
+  .authscreen-header {
+    background-image: url("img/boy-logging-in.png");
+    background-size: 80vh;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+  }
+  
+  .Home-content p {
+    margin: 5%;
+    padding: 0 10%;
+    font-size: 20px;
+  }
+  
+  .intro-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .btn-register {
+    width: 338px;
+    height: 53px;
+    background: #F8DB5D;
+    border-radius: 10px;
+    border-style: none;
+    font-family: 'Neue Haas Unica W1G';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+    text-align: center;
+    color: #000;
+  }
+  
+  .Signup-header {
+    background-color: #FEFEF9;
+    background-image: none;
+  }
+  
+  .Signin-header {
+    background-image: none;
+  }
+  
+  .Signup h2,
+  .Signin h2 {
+    color: #000;
+  }
+  
+  .signupform,
+  .signinform {
+    position: relative;
+    z-index: 1;
+    max-width: 360px;
+    padding: 45px;
+    text-align: center;
+  }
+  
+  .signupform input,
+  .signinform input {
+    background: #fff;
+    width: 100%;
+    outline: 0;
+    border-color: #C5C5C5;
+    border-radius: 10px;
+    border-width: 1px;
+    border-style:solid;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  
+  .signupform button,
+  .signinform button 
+  {
+    background: #F8DB5D;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    margin: 0 0 5px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-weight: 700;
+    color: #000;
+  }
+  
+  .Signup-header p,
+  .Signin-header p {
+    margin: 0 0 15px;
+    padding: 0;
+    font-size: 14px;
+  }
+  
+  .section-signin h2 {
+    margin-top: 70px;
+    font-size: 12px;
+    color: #000;
+    text-decoration: solid;
+  }
+  
+  .buttonAuth {
+    background: #000;
+    width: 30%;
+    border: none;
+    border-radius: 10px;
+    margin: 0 0 5px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+  }
+  
+  .fa-circle-plus {
+    color: #10B76F;
+    font-size: 50px;
+  }
+  
+  .fa-circle-xmark {
+    color: #BDBDBD;
+    font-size: 40px;
+  }
+  
+  .fa-circle-check,
+  .fa-arrow-right-from-bracket {
+    color: #00B963;
+    font-size: 40px;
+  }
+  
+  .fa-trash-can,
+  .fa-pen-to-square {
+    color: #C5C5C5;
+    font-size: 28px;
+  }
+  
+  .delete-button,
+  .edit-button{
+    border: none;
+    outline: none;
+    background-color: #fff;
+    margin: 0%;
+  }
+  
+  .btn-logout {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    margin: 0%;
+  }
+  
+  .float {
+    display: block;
+    top : 85%;
+    right : 45%;
+    position: fixed;
+  }
+  
+  .Notes-builder {
+    background-color: #10B76F;
+    min-height: 100%;
+  }
+  
+  .Notes-builder h2 {
+    color: #fff;
+    font-size: 25px;
+    font-weight:400;
+    margin-left: 5px;
+    padding-left: 40px;
+  }
+  
+  .welcome-title h1 {
+    color: #000;
+    font-size: 25px;
+    font-weight:400;
+    margin-top: 30px;
+    margin-bottom: 0%;
+    padding: 0%;
+  }
+  
+  .welcome-title h2 {
+    color: #00B963;
+    font-size: 23px;
+    font-weight:700;
+    margin-top: 0%;
+    padding: 0%;
+  }
+  
+  .new-note-container {
+    padding: 50px;
+    margin: auto;
+    margin-top: 60px;
+    width: 200px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: max-content;
+    border-radius: 10px;
+  }
+  
+  .form-note {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 190px;
+    
+  }
+  
+  .form-note input {
+    height: 20px;
+    padding: 20px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  
+  .form-note input::placeholder {
+    color: #000;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  
+  .form-note textarea {
+    height: 200px;
+    padding: 20px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-family:neue-haas-unica,sans-serif;;
+  }
+  
+  .form-note textarea::placeholder {
+    color: #000;
+    font-size: 16px;
+    font-family:neue-haas-unica,sans-serif;;
+  }
+  
+  .actions-note{
+    padding-top: 20px;
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .actions-note button{
+    border: none;
+    outline: none;
+    background-color: #fff;
+  }
+  
+  }
+
+  @media (min-width:641px) {
+
+    body {
+      background-color: #ECECE0;
+    }
+    
+    
+    .Home,
+    .Signup,
+    .Authscreen,
+    .Notes,
+    .Notesbuilder,
+    .Newnote-header {
+      text-align: center;
+      font-family: neue-haas-unica,sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 20px;
+    
+    }
+    
+    h1 {
+      font-family: neue-haas-unica,sans-serif;
+      font-weight: 700;
+      font-style: normal;
+      font-size: 40px;
+    }
+    
+    h2 {
+      font-family: neue-haas-unica,sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: #fff;
+    }
+    
+    .App-logo,
+    .logo-vertical {
+      height: 18vmin;
+      pointer-events: none;
+      padding: 0px;
+    }
+    
+    .Home-header h1{
+      padding: 0%;
+      margin: 0%;
+    }
+    
+    .Home-content h2 {
+      margin-top: 70px;
+    }
+    
+    .Notes-header,
+    .Newnote-header {
+      background-color: #ECECE0;
+      min-height: 10vh;
+      display:flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin: 0%;
+      padding: 0%;
+    }
+    
+    .Newnote-header {
+      background-color: #10B76F;
+    }
+    
+    .Notes-header aside,
+    .Newnote-header aside {
+      padding: 0%;
+      margin: 15px;
+    }
+    
+    .Notes-container {
+      background-color: #ECECE0;
+      margin-left: 80px;
+      margin-right: 80px;
+      padding: 0%;
+      text-align:left;
+    }
+    
+    .allCards {
+      margin-top: 50px;
+      margin-bottom: 50px;
+      padding: 0%;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      grid-gap: 40px;
+    }
+    
+    .card {
+      background-color: #fff;
+      border-radius: 10px;
+    }
+    
+    .card-header {
+      display:flex;
+      flex-direction: row;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+    
+    .card button{
+      height:20px;
+      margin: 20px;
+    }
+    
+    .card h3 {
+      margin: 15px;
+    }
+    
+    .card p {
+      margin: 15px;
+    }
+    
+    .logo-notes {
+      height: 10vmin;
+      pointer-events: none;
+      padding: 0px;
+    }
+    
+    .Home-header,
+    .Signup-header,
+    .Signin-header,
+    .authscreen-header {
+      background-color: #10B76F;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: calc(10px + 2vmin);
+      color: black;
+      background-image: url("img/girl-taking-notes.png");
+      background-size: 80vh;
+      background-position: left bottom;
+      background-repeat: no-repeat;
+    }
+    
+    
+    .authscreen-header {
+      background-image: url("img/boy-logging-in.png");
+      background-size: 80vh;
+      background-position: left bottom;
+      background-repeat: no-repeat;
+    }
+    
+    .Home-content p {
+      margin: 5%;
+      padding: 0 10%;
+      font-size: 20px;
+    }
+    
+    .intro-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    a, a:hover, a:focus, a:active {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .btn-register {
+      width: 338px;
+      height: 53px;
+      background: #F8DB5D;
+      border-radius: 10px;
+      border-style: none;
+      font-family: 'Neue Haas Unica W1G';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 21px;
+      text-align: center;
+      color: #000;
+    }
+    
+    .Signup-header {
+      background-color: #FEFEF9;
+      background-image: none;
+    }
+    
+    .Signin-header {
+      background-image: none;
+    }
+    
+    .Signup h2,
+    .Signin h2 {
+      color: #000;
+    }
+    
+    .signupform,
+    .signinform {
+      position: relative;
+      z-index: 1;
+      max-width: 360px;
+      padding: 45px;
+      text-align: center;
+    }
+    
+    .signupform input,
+    .signinform input {
+      background: #fff;
+      width: 100%;
+      outline: 0;
+      border-color: #C5C5C5;
+      border-radius: 10px;
+      border-width: 1px;
+      border-style:solid;
+      margin: 0 0 15px;
+      padding: 15px;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+    
+    .signupform button,
+    .signinform button 
+    {
+      background: #F8DB5D;
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      margin: 0 0 5px;
+      padding: 15px;
+      box-sizing: border-box;
+      font-size: 14px;
+      font-weight: 700;
+      color: #000;
+    }
+    
+    .Signup-header p,
+    .Signin-header p {
+      margin: 0 0 15px;
+      padding: 0;
+      font-size: 14px;
+    }
+    
+    .section-signin h2 {
+      margin-top: 70px;
+      font-size: 12px;
+      color: #000;
+      text-decoration: solid;
+    }
+    
+    .buttonAuth {
+      background: #000;
+      width: 30%;
+      border: none;
+      border-radius: 10px;
+      margin: 0 0 5px;
+      padding: 15px;
+      box-sizing: border-box;
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+    }
+    
+    .fa-circle-plus {
+      color: #10B76F;
+      font-size: 70px;
+    }
+    
+    .fa-circle-xmark {
+      color: #BDBDBD;
+      font-size: 40px;
+    }
+    
+    .fa-circle-check,
+    .fa-arrow-right-from-bracket {
+      color: #00B963;
+      font-size: 40px;
+    }
+    
+    .fa-trash-can,
+    .fa-pen-to-square {
+      color: #C5C5C5;
+      font-size: 28px;
+    }
+    
+    .delete-button,
+    .edit-button{
+      border: none;
+      outline: none;
+      background-color: #fff;
+      margin: 0%;
+    }
+    
+    .btn-logout {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      margin: 0%;
+    }
+    
+    .float {
+      display: block;
+      top : 670px;
+      right : 55px;
+      position: fixed;
+    }
+    
+    .Notes-builder {
+      background-color: #10B76F;
+      min-height: 100vh;
+    }
+    
+    .Notes-builder h2 {
+      color: #fff;
+      font-size: 25px;
+      font-weight:400;
+      margin-left: 100px;
+      padding-left: 40px;
+    }
+    
+    .welcome-title h1 {
+      color: #000;
+      font-size: 25px;
+      font-weight:400;
+      margin-top: 30px;
+      margin-bottom: 0%;
+      padding: 0%;
+    }
+    
+    .welcome-title h2 {
+      color: #00B963;
+      font-size: 23px;
+      font-weight:700;
+      margin-top: 0%;
+      padding: 0%;
+    }
+    
+    .new-note-container {
+      padding: 50px;
+      margin: auto;
+      margin-top: 60px;
+      width: 800px;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: max-content;
+      border-radius: 10px;
+    }
+    
+    .form-note {
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      width: 790px;
+      
+    }
+    
+    .form-note input {
+      height: 20px;
+      padding: 20px;
+      border: none;
+      outline: none;
+      font-size: 20px;
+      font-weight: 700;
+    }
+    
+    .form-note input::placeholder {
+      color: #000;
+      font-size: 20px;
+      font-weight: 700;
+    }
+    
+    .form-note textarea {
+      height: 200px;
+      padding: 20px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      font-family:neue-haas-unica,sans-serif;;
+    }
+    
+    .form-note textarea::placeholder {
+      color: #000;
+      font-size: 16px;
+      font-family:neue-haas-unica,sans-serif;;
+    }
+    
+    .actions-note{
+      padding-top: 20px;
+      width: auto;
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .actions-note button{
+      border: none;
+      outline: none;
+      background-color: #fff;
+    }
+    
+    }
